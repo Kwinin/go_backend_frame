@@ -3,7 +3,6 @@ package server
 import (
 	"backend_ft_tcs/constant"
 	"backend_ft_tcs/docs"
-	"backend_ft_tcs/fisco"
 	"backend_ft_tcs/log"
 	"fmt"
 	"github.com/gin-gonic/gin"
@@ -23,10 +22,9 @@ type Server interface {
 type defaultServer struct {
 	name string
 
-	conf        *serverConfig
-	db          *gorm.DB
-	engine      *gin.Engine
-	fiscoClient fisco.FiscoService
+	conf   *serverConfig
+	db     *gorm.DB
+	engine *gin.Engine
 }
 
 func NewServer(name string) Server {
