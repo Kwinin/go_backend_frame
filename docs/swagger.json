@@ -1,0 +1,3128 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "contact": {}
+    },
+    "paths": {
+        "/common/home/production/detail": {
+            "post": {
+                "description": "查询产品详情接口",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "主页模块"
+                ],
+                "summary": "查询产品详情接口",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "溯源码",
+                        "name": "trace_code",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/server.HomeProductionDetailItemVO"
+                        }
+                    }
+                }
+            }
+        },
+        "/common/home/production/search": {
+            "post": {
+                "description": "查询产品列表接口",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "主页模块"
+                ],
+                "summary": "查询产品列表接口",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "根据产品名称进行模糊查询",
+                        "name": "search",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页数",
+                        "name": "page_size",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页码",
+                        "name": "page_num",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/server.HomeProductionSearchVO"
+                        }
+                    }
+                }
+            }
+        },
+        "/common/trace/search": {
+            "post": {
+                "description": "获取溯源记录",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "溯源记录模块"
+                ],
+                "summary": "获取溯源记录",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "溯源码",
+                        "name": "trace_code",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页数",
+                        "name": "page_size",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页码",
+                        "name": "page_num",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/server.TraceSearchVO"
+                        }
+                    }
+                }
+            }
+        },
+        "/common/user/login": {
+            "post": {
+                "description": "登陆接口",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "用户模块"
+                ],
+                "summary": "登陆接口",
+                "parameters": [
+                    {
+                        "description": "账号",
+                        "name": "mobile",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/server.UserLoginArgs"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "登录",
+                        "schema": {
+                            "$ref": "#/definitions/server.UserLoginVO"
+                        }
+                    }
+                }
+            }
+        },
+        "/common/user/register": {
+            "post": {
+                "description": "创建用户接口",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "用户模块"
+                ],
+                "summary": "创建用户接口",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "姓名",
+                        "name": "true_name",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "description": "电话",
+                        "name": "mobile",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "密码",
+                        "name": "password",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "身份证",
+                        "name": "id_card",
+                        "in": "formData"
+                    }
+                ]
+            }
+        },
+        "/internal/agr_warehouse/create": {
+            "post": {
+                "description": "创建农资仓库接口",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "农资仓库模块"
+                ],
+                "summary": "创建农资仓库接口",
+                "parameters": [
+                    {
+                        "description": "请求体",
+                        "name": "AgrWarehouseCreateArgs",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/server.AgrWarehouseCreateArgs"
+                        }
+                    }
+                ]
+            }
+        },
+        "/internal/agr_warehouse/material/search": {
+            "post": {
+                "description": "查询农资类型列表接口",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "农资仓库模块"
+                ],
+                "summary": "查询农资类型列表接口",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "根据农资类型名称进行模糊搜索",
+                        "name": "search",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页数",
+                        "name": "page_size",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页码",
+                        "name": "page_num",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/server.CollLandSearchVO"
+                        }
+                    }
+                }
+            }
+        },
+        "/internal/agr_warehouse/search": {
+            "post": {
+                "description": "查询农资仓库列表",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "农资仓库模块"
+                ],
+                "summary": "查询农资仓库列表",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "根据农资仓库名进行模糊查询",
+                        "name": "search",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页数",
+                        "name": "page_size",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页码",
+                        "name": "page_num",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/server.AgrWarehouseSearchVO"
+                        }
+                    }
+                }
+            }
+        },
+        "/internal/factory/create": {
+            "post": {
+                "description": "创建工厂接口",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "工厂模块"
+                ],
+                "summary": "创建工厂接口",
+                "parameters": [
+                    {
+                        "description": "请求体",
+                        "name": "FactoryCreateArgs",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/server.FactoryCreateArgs"
+                        }
+                    }
+                ]
+            }
+        },
+        "/internal/factory/process/create": {
+            "post": {
+                "description": "创建加工信息接口",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "工厂模块"
+                ],
+                "summary": "创建加工信息接口",
+                "parameters": [
+                    {
+                        "description": "请求体",
+                        "name": "FactoryProcessCreateArgs",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/server.FactoryProcessCreateArgs"
+                        }
+                    }
+                ]
+            }
+        },
+        "/internal/factory/process/detail": {
+            "get": {
+                "description": "查询加工信息详情",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "工厂模块"
+                ],
+                "summary": "查询加工信息详情",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "加工信息id",
+                        "name": "factory_process_id",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/server.FactoryProcessDetailItemVO"
+                        }
+                    }
+                }
+            }
+        },
+        "/internal/factory/process/search": {
+            "post": {
+                "description": "查询加工信息列表",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "工厂模块"
+                ],
+                "summary": "查询加工信息列表",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "根据流程名称进行模糊查询",
+                        "name": "search",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "工厂Id",
+                        "name": "factory_id",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页数",
+                        "name": "page_size",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页码",
+                        "name": "page_num",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/server.FactoryProcessSearchVO"
+                        }
+                    }
+                }
+            }
+        },
+        "/internal/factory/search": {
+            "post": {
+                "description": "查询工厂列表",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "工厂模块"
+                ],
+                "summary": "查询工厂列表",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "根据工厂名进行模糊查询",
+                        "name": "search",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页数",
+                        "name": "page_size",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页码",
+                        "name": "page_num",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/server.FactorySearchVO"
+                        }
+                    }
+                }
+            }
+        },
+        "/internal/infra/uploads": {
+            "post": {
+                "description": "多文件上传接口",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "基础模块"
+                ],
+                "summary": "多文件上传接口",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "文件",
+                        "name": "files",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "文件类型 {1:产品图片，2:种植文件，3:质检文件}",
+                        "name": "type",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/server.FileUploadItemVO"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/internal/land/collection/create": {
+            "post": {
+                "description": "创建土地信息采集接口",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "土地模块"
+                ],
+                "summary": "创建土地信息采集接口",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "传感器参数使用json字符串",
+                        "name": "sensor_param",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "土地id",
+                        "name": "assets_land_id",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "产品id",
+                        "name": "production_id",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "视频号",
+                        "name": "source_video_number",
+                        "in": "formData"
+                    }
+                ]
+            }
+        },
+        "/internal/land/collection/search": {
+            "post": {
+                "description": "查询土地采集信息接口",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "土地模块"
+                ],
+                "summary": "查询土地采集信息接口",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "根据产品Id查询",
+                        "name": "production_id",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页数",
+                        "name": "page_size",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页码",
+                        "name": "page_num",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/server.CollLandSearchVO"
+                        }
+                    }
+                }
+            }
+        },
+        "/internal/land/create": {
+            "post": {
+                "description": "创建土地固定资产接口",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "土地模块"
+                ],
+                "summary": "创建土地固定资产接口",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "面积",
+                        "name": "area",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "description": "面积单位 {'m2':平方米,'km2':平方公里,'ha': 公顷,'mu': 亩}",
+                        "name": "area_unit",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "description": "土地名称",
+                        "name": "name",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "土地位置",
+                        "name": "address",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "土地描述",
+                        "name": "description",
+                        "in": "formData"
+                    }
+                ]
+            }
+        },
+        "/internal/land/search": {
+            "post": {
+                "description": "查询当前用户的土地列表接口",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "土地模块"
+                ],
+                "summary": "查询当前用户的土地列表接口",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "根据土地名称进行模糊查询",
+                        "name": "search",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页数",
+                        "name": "page_size",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页码",
+                        "name": "page_num",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/server.LandSearchVO"
+                        }
+                    }
+                }
+            }
+        },
+        "/internal/land/searchAll": {
+            "post": {
+                "description": "查询所有的土地列表接口",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "土地模块"
+                ],
+                "summary": "查询所有的土地列表接口",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "根据土地名称进行模糊查询",
+                        "name": "search",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页数",
+                        "name": "page_size",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页码",
+                        "name": "page_num",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/server.LandSearchVO"
+                        }
+                    }
+                }
+            }
+        },
+        "/internal/organization/create": {
+            "post": {
+                "description": "创建组织接口",
+                "consumes": [
+                    "application/json",
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "组织模块"
+                ],
+                "summary": "创建组织接口",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "组织名",
+                        "name": "name",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "营业执照文件地址",
+                        "name": "license",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "资质证明ResourceIds",
+                        "name": "qa",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "description": "组织描述",
+                        "name": "description",
+                        "in": "formData"
+                    }
+                ]
+            }
+        },
+        "/internal/organization/detail": {
+            "get": {
+                "description": "查询已建组织详情",
+                "consumes": [
+                    "application/json",
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "组织模块"
+                ],
+                "summary": "查询已建组织详情",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "组织Id",
+                        "name": "organization_id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/server.OrganizationDetailItemVO"
+                        }
+                    }
+                }
+            }
+        },
+        "/internal/organization/member/create": {
+            "post": {
+                "description": "新建组织成员",
+                "consumes": [
+                    "application/json",
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "组织模块"
+                ],
+                "summary": "新建组织成员",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "用户ids字符串 ex:11,3,23",
+                        "name": "user_ids",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "组织Id",
+                        "name": "organization_id",
+                        "in": "formData",
+                        "required": true
+                    }
+                ]
+            }
+        },
+        "/internal/organization/member/del": {
+            "post": {
+                "description": "删除组织成员",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "产品模块"
+                ],
+                "summary": "删除组织成员",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "组织id",
+                        "name": "organization_id",
+                        "in": "formData"
+                    }
+                ]
+            }
+        },
+        "/internal/organization/member/search": {
+            "post": {
+                "description": "查询该组织成员列表",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "组织模块"
+                ],
+                "summary": "查询该组织成员列表",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "组织Id",
+                        "name": "organization_id",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页数",
+                        "name": "page_size",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页码",
+                        "name": "page_num",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/server.OrganizationDetailItemVO"
+                        }
+                    }
+                }
+            }
+        },
+        "/internal/organization/search": {
+            "post": {
+                "description": "查询已建组织信息列表",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "组织模块"
+                ],
+                "summary": "查询已建组织信息列表",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "根据组织名称进行模糊查询",
+                        "name": "search",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页数",
+                        "name": "page_size",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页码",
+                        "name": "page_num",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/server.OrganizationSearchVO"
+                        }
+                    }
+                }
+            }
+        },
+        "/internal/organization/update": {
+            "post": {
+                "description": "更新组织接口",
+                "consumes": [
+                    "application/json",
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "组织模块"
+                ],
+                "summary": "更新组织接口",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "组织id",
+                        "name": "id",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "组织名",
+                        "name": "name",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "description": "营业执照文件地址",
+                        "name": "license",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "description": "资质证明ResourceIds",
+                        "name": "qa",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "description": "组织描述",
+                        "name": "description",
+                        "in": "formData"
+                    }
+                ]
+            }
+        },
+        "/internal/plant_log/create": {
+            "post": {
+                "description": "创建种植记录接口",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "种植模块"
+                ],
+                "summary": "创建种植记录接口",
+                "parameters": [
+                    {
+                        "description": "请求体",
+                        "name": "PlantLogCreateArgs",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/server.PlantLogCreateArgs"
+                        }
+                    }
+                ]
+            }
+        },
+        "/internal/plant_log/search": {
+            "post": {
+                "description": "查询种植信息列表",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "种植模块"
+                ],
+                "summary": "查询种植信息列表",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "根据ProductionId进行精确查询",
+                        "name": "production_id",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页数",
+                        "name": "page_size",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页码",
+                        "name": "page_num",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/server.PlantLogSearchVO"
+                        }
+                    }
+                }
+            }
+        },
+        "/internal/plant_log/species/create": {
+            "post": {
+                "description": "创建操作类型接口",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "种植模块"
+                ],
+                "summary": "创建操作类型接口",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "种植类型名称",
+                        "name": "name",
+                        "in": "formData"
+                    }
+                ]
+            }
+        },
+        "/internal/plant_log/species/del": {
+            "post": {
+                "description": "删除某个操作类型",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "种植模块"
+                ],
+                "summary": "删除某个操作类型",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "种植类型Id",
+                        "name": "id",
+                        "in": "formData"
+                    }
+                ]
+            }
+        },
+        "/internal/plant_log/species/search": {
+            "post": {
+                "description": "查询操作类型列表接口",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "种植模块"
+                ],
+                "summary": "查询操作类型列表接口",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "根据类型名称进行模糊查询",
+                        "name": "search",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页数",
+                        "name": "page_size",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页码",
+                        "name": "page_num",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/server.PlantSpecSearchVO"
+                        }
+                    }
+                }
+            }
+        },
+        "/internal/pro_warehouse/create": {
+            "post": {
+                "description": "创建成品仓库接口",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "成品仓库模块"
+                ],
+                "summary": "创建成品仓库接口",
+                "parameters": [
+                    {
+                        "description": "请求体",
+                        "name": "ProWarehouseCreateArgs",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/server.ProWarehouseCreateArgs"
+                        }
+                    }
+                ]
+            }
+        },
+        "/internal/pro_warehouse/search": {
+            "post": {
+                "description": "查询成品仓库列表",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "成品仓库模块"
+                ],
+                "summary": "查询成品仓库列表",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "根据成品仓库名进行模糊查询",
+                        "name": "search",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页数",
+                        "name": "page_size",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页码",
+                        "name": "page_num",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/server.ProWarehouseSearchVO"
+                        }
+                    }
+                }
+            }
+        },
+        "/internal/pro_warehouse/update": {
+            "post": {
+                "description": "成品上架接口",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "成品仓库模块"
+                ],
+                "summary": "成品上架接口",
+                "parameters": [
+                    {
+                        "description": "请求体",
+                        "name": "ProWarehouseUpdateArgs",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/server.ProWarehouseUpdateArgs"
+                        }
+                    }
+                ]
+            }
+        },
+        "/internal/production/create": {
+            "post": {
+                "description": "创建产品接口",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "产品模块"
+                ],
+                "summary": "创建产品接口",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "产品种类Id",
+                        "name": "pro_spc_id",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "产品批号",
+                        "name": "lot",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "产品名称",
+                        "name": "name",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "负责人id",
+                        "name": "principal",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "土地Id",
+                        "name": "assets_land_id",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "组织id",
+                        "name": "org_id",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "文件ids 使用逗号隔开 ex: 11,42,53",
+                        "name": "resource_ids",
+                        "in": "formData"
+                    }
+                ]
+            }
+        },
+        "/internal/production/detail": {
+            "get": {
+                "description": "查询产品详情接口",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "产品模块"
+                ],
+                "summary": "查询产品详情接口",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "产品Id",
+                        "name": "production_id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/server.ProductionDetailItemVO"
+                        }
+                    }
+                }
+            }
+        },
+        "/internal/production/factory/process/create": {
+            "post": {
+                "description": "创建产品的加工环节接口",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "产品模块"
+                ],
+                "summary": "创建产品的加工环节接口",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "产品id",
+                        "name": "production_id",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "产品id",
+                        "name": "factory_process_id",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "资源ids",
+                        "name": "resource_ids",
+                        "in": "formData"
+                    }
+                ]
+            }
+        },
+        "/internal/production/factory/process/search": {
+            "post": {
+                "description": "查询产品的加工环节列表接口",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "产品模块"
+                ],
+                "summary": "查询产品的加工环节列表接口",
+                "parameters": [
+                    {
+                        "description": "请求体",
+                        "name": "ProFacProcessSearchArgs",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/server.ProFacProcessSearchArgs"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/server.ProFacProcessSearchVO"
+                        }
+                    }
+                }
+            }
+        },
+        "/internal/production/search": {
+            "post": {
+                "description": "查询产品列表接口",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "产品模块"
+                ],
+                "summary": "查询产品列表接口",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "根据产品批号进行模糊查询",
+                        "name": "search",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "产品类型 ex:1=农产品，2=半成品，3=成品",
+                        "name": "production_type",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页数",
+                        "name": "page_size",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页码",
+                        "name": "page_num",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/server.ProductionSearchVO"
+                        }
+                    }
+                }
+            }
+        },
+        "/internal/production/species/create": {
+            "post": {
+                "description": "创建产品种类接口",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "产品模块"
+                ],
+                "summary": "创建产品种类接口",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "产品种类名称",
+                        "name": "name",
+                        "in": "formData"
+                    }
+                ]
+            }
+        },
+        "/internal/production/species/del": {
+            "post": {
+                "description": "删除某个产品种类",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "产品模块"
+                ],
+                "summary": "删除某个产品种类",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "产品种类Id",
+                        "name": "id",
+                        "in": "formData"
+                    }
+                ]
+            }
+        },
+        "/internal/production/species/search": {
+            "post": {
+                "description": "查询产品种类列表接口",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "产品模块"
+                ],
+                "summary": "查询产品种类列表接口",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "根据种类名称进行模糊查询",
+                        "name": "search",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页数",
+                        "name": "page_size",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页码",
+                        "name": "page_num",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/server.ProSpecSearchVO"
+                        }
+                    }
+                }
+            }
+        },
+        "/internal/quality/create": {
+            "post": {
+                "description": "创建质检接口",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "质检模块"
+                ],
+                "summary": "创建质检接口",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "批次号",
+                        "name": "lot",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "质检状态 pass=通过，failed=不通过",
+                        "name": "status",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "资源ids",
+                        "name": "resource_ids",
+                        "in": "formData"
+                    }
+                ]
+            }
+        },
+        "/internal/quality/lot/search": {
+            "post": {
+                "description": "获取未质检的批次列表",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "质检模块"
+                ],
+                "summary": "获取未质检的批次列表",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/server.QualityLotSearchItemVO"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/internal/quality/search": {
+            "post": {
+                "description": "根据产品批号查询质检列表",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "质检模块"
+                ],
+                "summary": "根据产品批号查询质检列表",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "产品批号",
+                        "name": "lot",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页数",
+                        "name": "page_size",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页码",
+                        "name": "page_num",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/server.QualitySearchVO"
+                        }
+                    }
+                }
+            }
+        },
+        "/internal/user/detail": {
+            "get": {
+                "description": "获取用户信息接口",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "用户模块"
+                ],
+                "summary": "获取用户信息接口",
+                "responses": {
+                    "200": {
+                        "description": "detail",
+                        "schema": {
+                            "$ref": "#/definitions/server.UserDetailVO"
+                        }
+                    }
+                }
+            }
+        },
+        "/internal/user/search": {
+            "post": {
+                "description": "查询用户列表接口",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "用户模块"
+                ],
+                "summary": "查询用户列表接口",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "根据手机号和姓名进行模糊查询",
+                        "name": "search",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页数",
+                        "name": "page_size",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页码",
+                        "name": "page_num",
+                        "in": "formData",
+                        "required": true
+                    }
+                ]
+            }
+        }
+    },
+    "definitions": {
+        "agr_warehouse.AgrWarehouseModel": {
+            "type": "object",
+            "properties": {
+                "amtId": {
+                    "description": "存储类型id",
+                    "type": "integer"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "enterTime": {
+                    "description": "入库时间",
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "itemCount": {
+                    "description": "物品数量",
+                    "type": "integer"
+                },
+                "itemName": {
+                    "description": "物品名称",
+                    "type": "string"
+                },
+                "outTime": {
+                    "description": "出库时间",
+                    "type": "string"
+                },
+                "principal": {
+                    "description": "负责人",
+                    "type": "integer"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "userId": {
+                    "description": "操作员id",
+                    "type": "integer"
+                }
+            }
+        },
+        "resource.ResourceModel": {
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "description": "资源名称",
+                    "type": "string"
+                },
+                "path": {
+                    "description": "资源地址",
+                    "type": "string"
+                },
+                "status": {
+                    "description": "资源状态",
+                    "type": "integer"
+                },
+                "type": {
+                    "description": "资源类型",
+                    "type": "integer"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "user_id": {
+                    "description": "用户Id",
+                    "type": "integer"
+                }
+            }
+        },
+        "server.AgrWarehouseCreateArgs": {
+            "type": "object",
+            "required": [
+                "amt_id",
+                "item_count",
+                "item_name"
+            ],
+            "properties": {
+                "amt_id": {
+                    "description": "存储类型id",
+                    "type": "integer"
+                },
+                "item_count": {
+                    "description": "物品数量",
+                    "type": "integer"
+                },
+                "item_name": {
+                    "description": "物品名称",
+                    "type": "string"
+                },
+                "principal": {
+                    "description": "负责人id",
+                    "type": "integer"
+                }
+            }
+        },
+        "server.AgrWarehouseSearchItemVO": {
+            "type": "object",
+            "properties": {
+                "amt_id": {
+                    "description": "存储类型id",
+                    "type": "integer"
+                },
+                "amt_name": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "enter_time": {
+                    "description": "入库时间",
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "item_count": {
+                    "description": "物品数量",
+                    "type": "integer"
+                },
+                "item_name": {
+                    "description": "物品名称",
+                    "type": "string"
+                },
+                "out_time": {
+                    "description": "出库时间",
+                    "type": "string"
+                },
+                "principal": {
+                    "description": "负责人Id",
+                    "type": "integer"
+                },
+                "principal_name": {
+                    "description": "负责人",
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "server.AgrWarehouseSearchVO": {
+            "type": "object",
+            "properties": {
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/server.AgrWarehouseSearchItemVO"
+                    }
+                },
+                "total": {
+                    "type": "integer"
+                }
+            }
+        },
+        "server.CollLandSearchItemVO": {
+            "type": "object",
+            "properties": {
+                "assets_land_id": {
+                    "type": "integer"
+                },
+                "land_address": {
+                    "type": "string"
+                },
+                "land_name": {
+                    "type": "string"
+                },
+                "production_id": {
+                    "type": "integer"
+                },
+                "sensor_param": {
+                    "type": "string"
+                },
+                "source_video_number": {
+                    "type": "string"
+                }
+            }
+        },
+        "server.CollLandSearchVO": {
+            "type": "object",
+            "properties": {
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/server.CollLandSearchItemVO"
+                    }
+                },
+                "total": {
+                    "type": "integer"
+                }
+            }
+        },
+        "server.FactoryCreateArgs": {
+            "type": "object",
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "address": {
+                    "description": "工厂地址",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "工厂名称",
+                    "type": "string"
+                }
+            }
+        },
+        "server.FactoryProcessCreateArgs": {
+            "type": "object",
+            "properties": {
+                "factory_id": {
+                    "description": "工厂id",
+                    "type": "integer"
+                },
+                "name": {
+                    "description": "流程名称",
+                    "type": "string"
+                },
+                "principal": {
+                    "description": "流程负责人Id",
+                    "type": "integer"
+                }
+            }
+        },
+        "server.FactoryProcessDetailItemVO": {
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "type": "string"
+                },
+                "factory_address": {
+                    "description": "工厂地址",
+                    "type": "string"
+                },
+                "factory_id": {
+                    "description": "工厂Id",
+                    "type": "integer"
+                },
+                "factory_name": {
+                    "description": "工厂名称",
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "description": "流程名称",
+                    "type": "string"
+                },
+                "principal": {
+                    "description": "流程负责人id",
+                    "type": "integer"
+                },
+                "principal_mobile": {
+                    "description": "负责人电话",
+                    "type": "string"
+                },
+                "principal_name": {
+                    "description": "负责人名称",
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "server.FactoryProcessSearchItemVO": {
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "type": "string"
+                },
+                "factory_id": {
+                    "description": "工厂Id",
+                    "type": "integer"
+                },
+                "factory_name": {
+                    "description": "工厂名称",
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "description": "流程名称",
+                    "type": "string"
+                },
+                "principal": {
+                    "description": "流程负责人id",
+                    "type": "integer"
+                },
+                "principal_name": {
+                    "description": "负责人名称",
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "server.FactoryProcessSearchVO": {
+            "type": "object",
+            "properties": {
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/server.FactoryProcessSearchItemVO"
+                    }
+                },
+                "total": {
+                    "type": "integer"
+                }
+            }
+        },
+        "server.FactorySearchItemVO": {
+            "type": "object",
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "address": {
+                    "description": "工厂地址",
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "description": "工厂名称",
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "server.FactorySearchVO": {
+            "type": "object",
+            "properties": {
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/server.FactorySearchItemVO"
+                    }
+                },
+                "total": {
+                    "type": "integer"
+                }
+            }
+        },
+        "server.FileUploadItemVO": {
+            "type": "object",
+            "properties": {
+                "dir": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "path": {
+                    "type": "string"
+                },
+                "resource_id": {
+                    "type": "integer"
+                }
+            }
+        },
+        "server.HomeOrgVO": {
+            "type": "object",
+            "properties": {
+                "license": {
+                    "description": "营业执照文件地址",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "组织名称",
+                    "type": "string"
+                },
+                "resources_vo": {
+                    "description": "QA 资源地址",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/resource.ResourceModel"
+                    }
+                }
+            }
+        },
+        "server.HomeProductionDetailItemVO": {
+            "type": "object",
+            "properties": {
+                "assets_land_address": {
+                    "description": "种植地址",
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "lot": {
+                    "description": "产品批次号",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "产品名称",
+                    "type": "string"
+                },
+                "organization_vo": {
+                    "description": "商家信息",
+                    "$ref": "#/definitions/server.HomeOrgVO"
+                },
+                "price": {
+                    "description": "价格",
+                    "type": "integer"
+                },
+                "resource_vo": {
+                    "description": "资源视图",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/resource.ResourceModel"
+                    }
+                },
+                "trace_code": {
+                    "description": "溯源码",
+                    "type": "string"
+                },
+                "trace_search_item_vo": {
+                    "description": "溯源信息",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/server.TraceDetailItemVO"
+                    }
+                },
+                "type": {
+                    "description": "产品类型，1=农产品，2=半成品，3=成品",
+                    "type": "integer"
+                }
+            }
+        },
+        "server.HomeProductionSearchItemVO": {
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "type": "string"
+                },
+                "lot": {
+                    "description": "产品批次号",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "产品名称",
+                    "type": "string"
+                },
+                "price": {
+                    "description": "价格",
+                    "type": "integer"
+                },
+                "resource_vo": {
+                    "description": "资源视图",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/resource.ResourceModel"
+                    }
+                },
+                "trace_code": {
+                    "description": "溯源码",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "产品类型，1=农产品，2=半成品，3=成品",
+                    "type": "integer"
+                }
+            }
+        },
+        "server.HomeProductionSearchVO": {
+            "type": "object",
+            "properties": {
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/server.HomeProductionSearchItemVO"
+                    }
+                },
+                "total": {
+                    "type": "integer"
+                }
+            }
+        },
+        "server.LandSearchItemVO": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "area": {
+                    "type": "integer"
+                },
+                "area_unit": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "user_id": {
+                    "type": "integer"
+                }
+            }
+        },
+        "server.LandSearchVO": {
+            "type": "object",
+            "properties": {
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/server.LandSearchItemVO"
+                    }
+                },
+                "total": {
+                    "type": "integer"
+                }
+            }
+        },
+        "server.OrganizationDetailItemVO": {
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "type": "string"
+                },
+                "description": {
+                    "description": "描述",
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "license": {
+                    "description": "营业执照文件地址",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "组织名称",
+                    "type": "string"
+                },
+                "qa": {
+                    "description": "资质证明ResourceIds",
+                    "type": "string"
+                },
+                "resource.ResourceModelList": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/resource.ResourceModel"
+                    }
+                },
+                "status": {
+                    "description": "组织状态",
+                    "type": "integer"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "user_id": {
+                    "description": "组织所有者",
+                    "type": "integer"
+                },
+                "user_mobile": {
+                    "type": "string"
+                },
+                "user_name": {
+                    "description": "组织创建者",
+                    "type": "string"
+                }
+            }
+        },
+        "server.OrganizationSearchItemVO": {
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "type": "string"
+                },
+                "description": {
+                    "description": "描述",
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "license": {
+                    "description": "营业执照文件地址",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "组织名称",
+                    "type": "string"
+                },
+                "qa": {
+                    "description": "资质证明ResourceIds",
+                    "type": "string"
+                },
+                "status": {
+                    "description": "组织状态",
+                    "type": "integer"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "user_id": {
+                    "description": "组织所有者",
+                    "type": "integer"
+                },
+                "user_name": {
+                    "description": "组织创建者",
+                    "type": "string"
+                }
+            }
+        },
+        "server.OrganizationSearchVO": {
+            "type": "object",
+            "properties": {
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/server.OrganizationSearchItemVO"
+                    }
+                },
+                "total": {
+                    "type": "integer"
+                }
+            }
+        },
+        "server.PlantLogCreateArgs": {
+            "type": "object",
+            "required": [
+                "op_action_type",
+                "principal",
+                "production_id"
+            ],
+            "properties": {
+                "agr_warehouse_ids": {
+                    "description": "农资ids 使用逗号隔开 ex: 11,42,53",
+                    "type": "string"
+                },
+                "op_action_jsonstr": {
+                    "description": "操作动作参数记录",
+                    "type": "string"
+                },
+                "op_action_type": {
+                    "description": "操作类型",
+                    "type": "integer"
+                },
+                "principal": {
+                    "description": "负责人id",
+                    "type": "integer"
+                },
+                "production_id": {
+                    "description": "产品id",
+                    "type": "integer"
+                },
+                "resource_ids": {
+                    "description": "资源ids 使用逗号隔开 ex: 11,42,53",
+                    "type": "string"
+                }
+            }
+        },
+        "server.PlantLogSearchItemVO": {
+            "type": "object",
+            "properties": {
+                "agr_warehouse_vo": {
+                    "description": "农资视图",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/agr_warehouse.AgrWarehouseModel"
+                    }
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "op_action_jsonstr": {
+                    "description": "操作动作参数记录",
+                    "type": "string"
+                },
+                "op_action_type": {
+                    "description": "操作类型",
+                    "type": "integer"
+                },
+                "principal_vo": {
+                    "description": "负责人视图",
+                    "$ref": "#/definitions/server.UserSearchItemVO"
+                },
+                "production_id": {
+                    "description": "产品id",
+                    "type": "integer"
+                },
+                "resource_ids": {
+                    "description": "资源ids",
+                    "type": "string"
+                },
+                "resources_vo": {
+                    "description": "资源视图",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/resource.ResourceModel"
+                    }
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "user_id": {
+                    "description": "操作员id",
+                    "type": "integer"
+                }
+            }
+        },
+        "server.PlantLogSearchVO": {
+            "type": "object",
+            "properties": {
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/server.PlantLogSearchItemVO"
+                    }
+                },
+                "total": {
+                    "type": "integer"
+                }
+            }
+        },
+        "server.PlantSpecSearchItemVO": {
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "server.PlantSpecSearchVO": {
+            "type": "object",
+            "properties": {
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/server.PlantSpecSearchItemVO"
+                    }
+                },
+                "total": {
+                    "type": "integer"
+                }
+            }
+        },
+        "server.ProFacProcessSearchArgs": {
+            "type": "object",
+            "required": [
+                "page_num",
+                "page_size"
+            ],
+            "properties": {
+                "page_num": {
+                    "type": "integer"
+                },
+                "page_size": {
+                    "type": "integer"
+                },
+                "production_id": {
+                    "type": "integer"
+                }
+            }
+        },
+        "server.ProFacProcessSearchItemVO": {
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "type": "string"
+                },
+                "factory_process_id": {
+                    "description": "加工流程id",
+                    "type": "integer"
+                },
+                "factory_process_vo": {
+                    "description": "加工流程视图",
+                    "$ref": "#/definitions/server.FactoryProcessDetailItemVO"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "production_id": {
+                    "description": "产品id",
+                    "type": "integer"
+                },
+                "resource_ids": {
+                    "type": "string"
+                },
+                "resources_vo": {
+                    "description": "资源视图",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/resource.ResourceModel"
+                    }
+                },
+                "updated_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "server.ProFacProcessSearchVO": {
+            "type": "object",
+            "properties": {
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/server.ProFacProcessSearchItemVO"
+                    }
+                },
+                "total": {
+                    "type": "integer"
+                }
+            }
+        },
+        "server.ProSpecSearchItemVO": {
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "server.ProSpecSearchVO": {
+            "type": "object",
+            "properties": {
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/server.ProSpecSearchItemVO"
+                    }
+                },
+                "total": {
+                    "type": "integer"
+                }
+            }
+        },
+        "server.ProWarehouseCreateArgs": {
+            "type": "object",
+            "required": [
+                "production_count",
+                "production_id"
+            ],
+            "properties": {
+                "principal": {
+                    "description": "负责人",
+                    "type": "integer"
+                },
+                "production_count": {
+                    "description": "成品数量",
+                    "type": "integer"
+                },
+                "production_id": {
+                    "description": "成品id",
+                    "type": "integer"
+                }
+            }
+        },
+        "server.ProWarehouseSearchItemVO": {
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "type": "string"
+                },
+                "enter_time": {
+                    "description": "入库时间",
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "out_time": {
+                    "description": "出库时间",
+                    "type": "string"
+                },
+                "principal": {
+                    "description": "负责人id",
+                    "type": "integer"
+                },
+                "principal_name": {
+                    "description": "负责人",
+                    "type": "string"
+                },
+                "production_count": {
+                    "description": "成品数量",
+                    "type": "integer"
+                },
+                "production_id": {
+                    "description": "成品id",
+                    "type": "integer"
+                },
+                "production_name": {
+                    "description": "成品名称",
+                    "type": "string"
+                },
+                "production_species_name": {
+                    "description": "成品种类名称",
+                    "type": "string"
+                },
+                "production_type": {
+                    "description": "成品状态",
+                    "type": "integer"
+                },
+                "trace_code": {
+                    "description": "溯源码",
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "server.ProWarehouseSearchVO": {
+            "type": "object",
+            "properties": {
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/server.ProWarehouseSearchItemVO"
+                    }
+                },
+                "total": {
+                    "type": "integer"
+                }
+            }
+        },
+        "server.ProWarehouseUpdateArgs": {
+            "type": "object",
+            "required": [
+                "id",
+                "production_type",
+                "store_count"
+            ],
+            "properties": {
+                "id": {
+                    "description": "仓库id",
+                    "type": "integer"
+                },
+                "production_type": {
+                    "description": "产品类型",
+                    "type": "integer"
+                },
+                "store_count": {
+                    "description": "上架数量",
+                    "type": "integer"
+                }
+            }
+        },
+        "server.ProductionDetailItemVO": {
+            "type": "object",
+            "properties": {
+                "assets_land_id": {
+                    "description": "土地id",
+                    "type": "integer"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "land_vo": {
+                    "description": "土地视图",
+                    "$ref": "#/definitions/server.LandSearchItemVO"
+                },
+                "lot": {
+                    "description": "产品批次号",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "产品名称",
+                    "type": "string"
+                },
+                "price": {
+                    "description": "价格",
+                    "type": "integer"
+                },
+                "principal": {
+                    "description": "负责人id",
+                    "type": "integer"
+                },
+                "principal_vo": {
+                    "description": "负责人视图",
+                    "$ref": "#/definitions/server.UserSearchItemVO"
+                },
+                "pro_spc_id": {
+                    "description": "产品种类id",
+                    "type": "integer"
+                },
+                "production_species_vo": {
+                    "description": "产品视图",
+                    "$ref": "#/definitions/server.ProSpecSearchItemVO"
+                },
+                "resource_ids": {
+                    "description": "资源ids",
+                    "type": "string"
+                },
+                "resource_vo": {
+                    "description": "资源视图",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/resource.ResourceModel"
+                    }
+                },
+                "status": {
+                    "description": "状态 1=可用 2=禁用 3=删除",
+                    "type": "integer"
+                },
+                "type": {
+                    "description": "产品类型，1=半成品，2=成品",
+                    "type": "integer"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "user_id": {
+                    "description": "操作员id",
+                    "type": "integer"
+                }
+            }
+        },
+        "server.ProductionSearchItemVO": {
+            "type": "object",
+            "properties": {
+                "assets_land_id": {
+                    "description": "土地id",
+                    "type": "integer"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "land_vo": {
+                    "description": "土地视图",
+                    "$ref": "#/definitions/server.LandSearchItemVO"
+                },
+                "lot": {
+                    "description": "产品批次号",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "产品名称",
+                    "type": "string"
+                },
+                "price": {
+                    "description": "价格",
+                    "type": "integer"
+                },
+                "principal": {
+                    "description": "负责人id",
+                    "type": "integer"
+                },
+                "principal_vo": {
+                    "description": "负责人视图",
+                    "$ref": "#/definitions/server.UserSearchItemVO"
+                },
+                "pro_spc_id": {
+                    "description": "产品种类id",
+                    "type": "integer"
+                },
+                "production_species_vo": {
+                    "description": "产品视图",
+                    "$ref": "#/definitions/server.ProSpecSearchItemVO"
+                },
+                "resource_ids": {
+                    "description": "资源ids",
+                    "type": "string"
+                },
+                "resource_vo": {
+                    "description": "资源视图",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/resource.ResourceModel"
+                    }
+                },
+                "status": {
+                    "description": "状态 1=可用 2=禁用 3=删除",
+                    "type": "integer"
+                },
+                "type": {
+                    "description": "产品类型，1=半成品，2=成品",
+                    "type": "integer"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "user_id": {
+                    "description": "操作员id",
+                    "type": "integer"
+                }
+            }
+        },
+        "server.ProductionSearchVO": {
+            "type": "object",
+            "properties": {
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/server.ProductionSearchItemVO"
+                    }
+                },
+                "total": {
+                    "type": "integer"
+                }
+            }
+        },
+        "server.QualityLotSearchItemVO": {
+            "type": "object",
+            "properties": {
+                "lot": {
+                    "description": "批次号",
+                    "type": "string"
+                }
+            }
+        },
+        "server.QualitySearchItemVO": {
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "lot": {
+                    "description": "批次号",
+                    "type": "string"
+                },
+                "resource_ids": {
+                    "description": "资源ids",
+                    "type": "string"
+                },
+                "resources_vo": {
+                    "description": "资源视图",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/resource.ResourceModel"
+                    }
+                },
+                "status": {
+                    "description": "质检状态 1=通过，2=不通过",
+                    "type": "integer"
+                },
+                "updated_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "server.QualitySearchVO": {
+            "type": "object",
+            "properties": {
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/server.QualitySearchItemVO"
+                    }
+                },
+                "total": {
+                    "type": "integer"
+                }
+            }
+        },
+        "server.TraceDetailItemVO": {
+            "type": "object",
+            "properties": {
+                "content": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "op_action_type": {
+                    "type": "string"
+                },
+                "principal_name": {
+                    "type": "string"
+                },
+                "resources_vo": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/resource.ResourceModel"
+                    }
+                },
+                "status": {
+                    "type": "string"
+                },
+                "tx_hash": {
+                    "type": "string"
+                }
+            }
+        },
+        "server.TraceSearchItemVO": {
+            "type": "object",
+            "properties": {
+                "chain_status": {
+                    "description": "上链状态",
+                    "type": "integer"
+                },
+                "content": {
+                    "description": "上链内容",
+                    "type": "string"
+                },
+                "content_hash": {
+                    "description": "内容hash",
+                    "type": "string"
+                },
+                "principal_name": {
+                    "description": "负责人名称",
+                    "type": "string"
+                },
+                "production_lot": {
+                    "description": "成品批次",
+                    "type": "string"
+                },
+                "production_name": {
+                    "description": "成品名称",
+                    "type": "string"
+                },
+                "trace_code": {
+                    "description": "溯源码",
+                    "type": "string"
+                },
+                "tx_hash": {
+                    "description": "交易hash",
+                    "type": "string"
+                }
+            }
+        },
+        "server.TraceSearchVO": {
+            "type": "object",
+            "properties": {
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/server.TraceSearchItemVO"
+                    }
+                },
+                "total": {
+                    "type": "integer"
+                }
+            }
+        },
+        "server.UserDetailVO": {
+            "type": "object",
+            "properties": {
+                "mobile": {
+                    "description": "手机号码",
+                    "type": "string"
+                },
+                "true_name": {
+                    "type": "string"
+                }
+            }
+        },
+        "server.UserLoginArgs": {
+            "type": "object",
+            "properties": {
+                "mobile": {
+                    "type": "string",
+                    "example": "12345678"
+                },
+                "password": {
+                    "type": "string",
+                    "example": "123456"
+                }
+            }
+        },
+        "server.UserLoginVO": {
+            "type": "object",
+            "properties": {
+                "token": {
+                    "type": "string"
+                },
+                "user_id": {
+                    "type": "integer"
+                }
+            }
+        },
+        "server.UserSearchItemVO": {
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "type": "string"
+                },
+                "mobile": {
+                    "type": "string"
+                },
+                "true_name": {
+                    "type": "string"
+                },
+                "user_id": {
+                    "type": "integer"
+                }
+            }
+        }
+    }
+}

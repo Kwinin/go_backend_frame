@@ -1,0 +1,8 @@
+.idea/
+gormstructs/
+data/mysql/*
+go_build_backend_*
+data/logs/*
+app
+data/file/*
+tcs.tar
