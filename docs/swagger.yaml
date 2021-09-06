@@ -1,0 +1,120 @@
+definitions:
+  server.UserDetailVO:
+    properties:
+      mobile:
+        description: 手机号码
+        type: string
+      true_name:
+        type: string
+    type: object
+  server.UserLoginArgs:
+    properties:
+      mobile:
+        example: "12345678"
+        type: string
+      password:
+        example: "123456"
+        type: string
+    type: object
+  server.UserLoginVO:
+    properties:
+      token:
+        type: string
+      user_id:
+        type: integer
+    type: object
+info:
+  contact: {}
+paths:
+  /common/user/login:
+    post:
+      consumes:
+      - application/json
+      description: 登陆接口
+      parameters:
+      - description: 账号
+        in: body
+        name: mobile
+        required: true
+        schema:
+          $ref: '#/definitions/server.UserLoginArgs'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 登录
+          schema:
+            $ref: '#/definitions/server.UserLoginVO'
+      summary: 登陆接口
+      tags:
+      - 用户模块
+  /common/user/register:
+    post:
+      consumes:
+      - application/json
+      description: 创建用户接口
+      parameters:
+      - description: 姓名
+        in: formData
+        name: true_name
+        type: string
+      - description: 电话
+        in: formData
+        name: mobile
+        required: true
+        type: string
+      - description: 密码
+        in: formData
+        name: password
+        required: true
+        type: string
+      - description: 身份证
+        in: formData
+        name: id_card
+        type: string
+      produces:
+      - application/json
+      summary: 创建用户接口
+      tags:
+      - 用户模块
+  /internal/user/detail:
+    get:
+      consumes:
+      - application/x-www-form-urlencoded
+      description: 获取用户信息接口
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: detail
+          schema:
+            $ref: '#/definitions/server.UserDetailVO'
+      summary: 获取用户信息接口
+      tags:
+      - 用户模块
+  /internal/user/search:
+    post:
+      consumes:
+      - application/json
+      description: 查询用户列表接口
+      parameters:
+      - description: 根据手机号和姓名进行模糊查询
+        in: formData
+        name: search
+        type: string
+      - description: 页数
+        in: formData
+        name: page_size
+        required: true
+        type: integer
+      - description: 页码
+        in: formData
+        name: page_num
+        required: true
+        type: integer
+      produces:
+      - application/json
+      summary: 查询用户列表接口
+      tags:
+      - 用户模块
+swagger: "2.0"

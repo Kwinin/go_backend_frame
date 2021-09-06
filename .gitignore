@@ -1,0 +1,10 @@
+.idea/
+.DS_Store
+*/**/.DS_Store
+gormstructs/
+data/mysql/*
+go_build_backend_*
+data/logs/*
+app
+data/file/*
+tcs.tar

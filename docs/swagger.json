@@ -1,0 +1,183 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "contact": {}
+    },
+    "paths": {
+        "/common/user/login": {
+            "post": {
+                "description": "登陆接口",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "用户模块"
+                ],
+                "summary": "登陆接口",
+                "parameters": [
+                    {
+                        "description": "账号",
+                        "name": "mobile",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/server.UserLoginArgs"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "登录",
+                        "schema": {
+                            "$ref": "#/definitions/server.UserLoginVO"
+                        }
+                    }
+                }
+            }
+        },
+        "/common/user/register": {
+            "post": {
+                "description": "创建用户接口",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "用户模块"
+                ],
+                "summary": "创建用户接口",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "姓名",
+                        "name": "true_name",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "description": "电话",
+                        "name": "mobile",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "密码",
+                        "name": "password",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "身份证",
+                        "name": "id_card",
+                        "in": "formData"
+                    }
+                ]
+            }
+        },
+        "/internal/user/detail": {
+            "get": {
+                "description": "获取用户信息接口",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "用户模块"
+                ],
+                "summary": "获取用户信息接口",
+                "responses": {
+                    "200": {
+                        "description": "detail",
+                        "schema": {
+                            "$ref": "#/definitions/server.UserDetailVO"
+                        }
+                    }
+                }
+            }
+        },
+        "/internal/user/search": {
+            "post": {
+                "description": "查询用户列表接口",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "用户模块"
+                ],
+                "summary": "查询用户列表接口",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "根据手机号和姓名进行模糊查询",
+                        "name": "search",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页数",
+                        "name": "page_size",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页码",
+                        "name": "page_num",
+                        "in": "formData",
+                        "required": true
+                    }
+                ]
+            }
+        }
+    },
+    "definitions": {
+        "server.UserDetailVO": {
+            "type": "object",
+            "properties": {
+                "mobile": {
+                    "description": "手机号码",
+                    "type": "string"
+                },
+                "true_name": {
+                    "type": "string"
+                }
+            }
+        },
+        "server.UserLoginArgs": {
+            "type": "object",
+            "properties": {
+                "mobile": {
+                    "type": "string",
+                    "example": "12345678"
+                },
+                "password": {
+                    "type": "string",
+                    "example": "123456"
+                }
+            }
+        },
+        "server.UserLoginVO": {
+            "type": "object",
+            "properties": {
+                "token": {
+                    "type": "string"
+                },
+                "user_id": {
+                    "type": "integer"
+                }
+            }
+        }
+    }
+}
